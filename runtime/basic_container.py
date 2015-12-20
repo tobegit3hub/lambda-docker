@@ -6,7 +6,7 @@ class BasicContainer:
     def __init__(self):
         self.client = self.create_docker_client()
         self.image = "python"
-        self.command = "/lambda/main.py"
+        self.command = "python /lambda/main.py"
 
 
     '''
@@ -58,7 +58,8 @@ class BasicContainer:
     '''
     Get logs of container.
     '''
-    def get_container_log(self, container_id):
+    def get_container_log(self, container):
+        container_id = container.get("Id")
         log = self.client.logs(container_id)
 
         return log

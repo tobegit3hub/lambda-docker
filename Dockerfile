@@ -8,6 +8,6 @@ RUN apt-get install -y python-pip
 ADD . /usr/lib/
 WORKDIR /usr/lib/lambda-docker
 
-RUN pip install -r ./requirements.txt
+RUN pip install -r /usr/lib/lambda-docker/requirements.txt
 
 CMD ['./server.py']
