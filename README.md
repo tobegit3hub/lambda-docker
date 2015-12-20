@@ -2,10 +2,24 @@
 
 ## Introduction
 
-Lambda-docker is the open-source [AWS Lambda](https://aws.amazon.com/lambda/) service.
+Lambda-docker is the event-driven code runtime like [AWS Lambda](https://aws.amazon.com/lambda/) service.
+
+You can run Python/Golang/Ruby/Java or any script without setting up servers.
 
 ## Usage
 
 ```
-sudo docker run -d -v /var/run/docker.sock:/var/run/docker.sock tobegit3hub/lambda-docker
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock tobegit3hub/lambda-docker
 ```
+
+## Demonstration
+
+Run lambda-docker server and go to `http://127.0.0.1:8080`.
+
+![](./example/lambda-docker-input.png)
+
+The user script runs in container without any configuration.
+
+![](./example/lambda-docker-output.png)
+
+
