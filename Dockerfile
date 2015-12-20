@@ -11,5 +11,5 @@ WORKDIR /usr/lib/lambda-docker
 RUN easy_install -U pip
 RUN pip install -r /usr/lib/lambda-docker/requirements.txt
 
-CMD ['./server.py']
+CMD /usr/lib/lambda-docker/server.py
 
