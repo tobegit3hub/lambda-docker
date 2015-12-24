@@ -15,7 +15,7 @@ python ./server.py
 Or run lambda-docker in container(Notice that can't save user code in Web UI).
 
 ```
-docker run -d -v /var/run/docker.sock:/var/run/docker.sock tobegit3hub/lambda-docker
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 tobegit3hub/lambda-docker
 ```
 
 ## Demonstration
