@@ -7,7 +7,7 @@ class BasicContainer:
         self.client = self.create_docker_client()
         self.image = "python"
         self.command = "python /lambda/main.py"
-
+	self.file_extension = ".py"
 
     '''
     Connect with docker daemon.
@@ -25,16 +25,21 @@ class BasicContainer:
     def create_lambda_container(self, user_file_path, container_memory="1g", container_cpu_shares=1024):
 
         container_function_path = "/lambda"
+	tmp_path = "/tmp"
 
         container = self.client.create_container(image=self.image,
                                             command=self.command,
-                                            volumes=[container_function_path],
+                                            volumes=[container_function_path, tmp_path],
                                             host_config=self.client.create_host_config(
                                                 binds={
                                                     user_file_path: {
                                                         "bind": container_function_path,
                                                         "mode": "ro",
-                                                        }
+                                                        },
+						    tmp_path: {
+							"bind": tmp_path,
+							"mode": "rw",
+							}
                                                 },
                                                 mem_limit=container_memory,
                                             ),

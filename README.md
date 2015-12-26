@@ -15,9 +15,9 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [x] Ruby
 - [x] Erlang
 - [x] Shell
-- [] Rust
-- [] Elixir
-- [] R
+- [ ] Rust
+- [ ] Elixir
+- [ ] R
 
 ## Usage
 

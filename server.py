@@ -28,7 +28,7 @@ class index:
     def GET(self):
         form = myform()
 
-        return render.formtest(form)
+        return render.index(form)
 
     '''
     Post to start container to run user code
