@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby
 
-puts "Run ruby stript"
+def main
+    puts "Run ruby stript"
+end
+
+if __FILE__ == $0
+  main
+end

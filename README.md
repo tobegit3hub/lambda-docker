@@ -64,5 +64,24 @@ The user script runs in container without any configuration.
 
 ![](./static/image/lambda-docker-output.png)
 
+Shell runtime is support now!
+
+![](./static/image/shell-runtime.png)
+
+Python runtime is support now!
+
+![](./static/image/python-runtime.png)
+
+Golang runtime is support now!
+
+![](./static/image/golang-runtime.png)
+
+Ruby runtime is support now!
+
+![](./static/image/ruby-runtime.png)
+
+Erlang runtime is support now!
+
+![](./static/image/erlang-runtime.png)
 
 
