@@ -7,6 +7,8 @@ class BasicContainer(object):
 
     def __init__(self):
         self.client = self.create_docker_client()
+
+	# Any container runtime should override these variables
         self.image = "python"
         self.command = "python /tmp/main.py"
 	self.file_extension = ".py"
@@ -26,15 +28,17 @@ class BasicContainer(object):
     '''
     def create_lambda_container(self, user_file_path, container_memory="1g", container_cpu_shares=1024):
 
-        container_function_path = "/tmp"
+	# Mount user file path in local with tmp path in container
+        tmp_path = "/tmp"
 
         container = self.client.create_container(image=self.image,
                                             command=self.command,
-                                            volumes=[container_function_path],
+                                            volumes=[tmp_path],
+					    working_dir=tmp_path,
                                             host_config=self.client.create_host_config(
                                                 binds={
                                                     user_file_path: {
-                                                        "bind": container_function_path,
+                                                        "bind": tmp_path,
                                                         "mode": "rw",
                                                         },
                                                 },

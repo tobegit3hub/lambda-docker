@@ -7,20 +7,40 @@ Lambda-docker is the event-driven code runtime like [AWS Lambda](https://aws.ama
 You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script without setting up servers.
 
 - [x] Python
-  - [x] Python:2.7
-  - [x] Python:3.5
+  - [x] Python 2.7
+  - [x] Python 3.5
 - [x] Golang
 - [x] Java
+  - [x] Java 6
+  - [x] Java 7
+  - [x] Java 8
+  - [x] Java 9
+  - [x] OpenJDK 6
+  - [x] OpenJDK 7
+  - [x] OpenJDK 8
+  - [x] OpenJDK 9
 - [x] JavaScript
   - [x] NodeJS
+- [ ] C
+- [ ] CPP
 - [x] Ruby
 - [x] Erlang
 - [x] Shell
   - [x] Ubuntu
   - [x] CentOS
+- [x] PHP
+- [ ] Perl  
+- [ ] C#
+- [ ] VB
+- [ ] Pascal
 - [ ] Rust
 - [ ] Elixir
 - [ ] R
+- [ ] Lua
+- [ ] Lisp
+- [ ] Object-C
+- [ ] Swift
+
 
 ## Usage
 
@@ -28,7 +48,7 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 sudo ./server.py
 ```
 
-Or run lambda-docker in container.
+Or run in container.
 
 ```
 docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp -p 8080:8080 tobegit3hub/lambda-docker
@@ -38,11 +58,11 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp -p 8080:
 
 Run lambda-docker server and go to <http://127.0.0.1:8080>.
 
-![](./example/lambda-docker-input.png)
+![](./static/image/lambda-docker-input.png)
 
 The user script runs in container without any configuration.
 
-![](./example/lambda-docker-output.png)
+![](./static/image/lambda-docker-output.png)
 
 
 
