@@ -8,7 +8,7 @@ from web import form
 
 from runtime import basic_container
 
-render = web.template.render('templates/')
+render = web.template.render('static/templates/')
 
 myform = form.Form(
     form.Dropdown('Runtime', ['python:2.7', 'python:3.5', 'golang']),
