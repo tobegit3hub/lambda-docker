@@ -11,10 +11,10 @@ from runtime import basic_container
 render = web.template.render('static/templates/')
 
 myform = form.Form(
-    form.Dropdown('Runtime', ['python:2.7', 'python:3.5', 'golang']),
-    form.Textbox("User code path"),
-    form.Checkbox('Use online script'),
-    form.Textarea('Script content'))
+    form.Dropdown("Runtime", ["python:2.7", "python:3.5", "golang", "ubuntu", "centos", "ruby", "javascript", "erlang"]),
+    form.Textbox("Load local file"),
+    form.Checkbox("Edit online code"),
+    form.Textarea("Online code"))
 
 urls = (
         '/', 'index'
@@ -41,18 +41,21 @@ class index:
 
         # Example: "python:2.7"
         runtime = parameters.get("Runtime")
-
-        is_use_online_script = parameters.has_key("Use online script")
-        if is_use_online_script:
-            script_content = parameters.get("Script content")
-
-            # Example: "/home/tobe/code/lambda-docker/"
-            user_code_path = os.getcwd()
-            with open("main.py", "w") as text_file:
-                text_file.write(script_content)
-        else:
+	
+	is_edit_online_code = parameters.has_key("Edit online code")
+		
+	if is_edit_online_code == False:
             # Example: "/home/tobe/code/lambda-docker/example/"
-            user_code_path = parameters.get("User code path")
+            load_file_path = parameters.get("Load local file")
+	    user_code_path = load_file_path
+
+        else:
+            submit_code = parameters.get("Online code")
+
+            tmp_path = "/tmp"
+            with open("/tmp/main.py", "w") as text_file:
+                text_file.write(submit_code)
+	    user_code_path = "/tmp/main.py"
 
         # Start lambda container
         # TODO(tobe): Test other runtime containers.

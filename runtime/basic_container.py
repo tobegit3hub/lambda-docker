@@ -6,7 +6,7 @@ class BasicContainer:
     def __init__(self):
         self.client = self.create_docker_client()
         self.image = "python"
-        self.command = "python /lambda/main.py"
+        self.command = "python /tmp/main.py"
 	self.file_extension = ".py"
 
     '''
