@@ -1,7 +1,9 @@
 import docker
 
-
-class BasicContainer:
+'''
+The lambda runtime with docker container
+'''
+class BasicContainer(object):
 
     def __init__(self):
         self.client = self.create_docker_client()
@@ -53,11 +55,9 @@ class BasicContainer:
     Start container.
     '''
     def start_lambda_container(self, container):
-
         container_id = container.get("Id")
         print(container_id)
         self.client.start(container_id)
-        print(self.client.logs(container_id))
 
 
     '''

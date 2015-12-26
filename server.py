@@ -68,7 +68,7 @@ class index:
         basicContainer.start_lambda_container(container)
 
         # Wait for logs of container
-        time.sleep(2)
+        time.sleep(1)
 
         log = basicContainer.get_container_log(container)
         if log:

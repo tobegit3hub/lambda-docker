@@ -4,8 +4,9 @@ import basic_container
 class Python27Container(basic_container.BasicContainer):
 
     def __init__(self):
-        #basic_container.BasicContainer.__init__()
-
-        self.image = "python:2.7"
-
+	super(Python27Container, self).__init__()
+        
+	self.image = "python:2.7"
+	self.command = "python /tmp/main.py"
+	self.file_extension = ".py"
 

@@ -1,9 +1,11 @@
 
 import basic_container
 
-class Python27Container(basic_container.BasicContainer):
+class Python35Container(basic_container.BasicContainer):
 
     def __init__(self):
-        #basic_container.BasicContainer.__init__()
-
-        self.image = "python:3.5"
+	super(self.__class__, self).__init__()
+        
+	self.image = "python:3.5"
+        self.command = "python /tmp/main.py"
+        self.file_extension = ".py"

@@ -12,9 +12,12 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [x] Golang
 - [x] Java
 - [x] JavaScript
+  - [x] NodeJS
 - [x] Ruby
 - [x] Erlang
 - [x] Shell
+  - [x] Ubuntu
+  - [x] CentOS
 - [ ] Rust
 - [ ] Elixir
 - [ ] R
