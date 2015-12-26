@@ -58,30 +58,30 @@ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp -p 8080:
 
 Run lambda-docker server and go to <http://127.0.0.1:8080>.
 
-![](./static/image/lambda-docker-input.png)
+![](./static/image/lambda_docker_input.png)
 
 The user script runs in container without any configuration.
 
-![](./static/image/lambda-docker-output.png)
+![](./static/image/lambda_docker_output.png)
 
 Shell runtime is support now!
 
-![](./static/image/shell-runtime.png)
+![](./static/image/shell_runtime.png)
 
 Python runtime is support now!
 
-![](./static/image/python-runtime.png)
+![](./static/image/python_runtime.png)
 
 Golang runtime is support now!
 
-![](./static/image/golang-runtime.png)
+![](./static/image/golang_runtime.png)
 
 Ruby runtime is support now!
 
-![](./static/image/ruby-runtime.png)
+![](./static/image/ruby_runtime.png)
 
 Erlang runtime is support now!
 
-![](./static/image/erlang-runtime.png)
+![](./static/image/erlang_runtime.png)
 
 
