@@ -1,6 +1,0 @@
-
-
-
-
-
-sudo docker run -d -v $(pwd):/lambda python /lambda/main.py

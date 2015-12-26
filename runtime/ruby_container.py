@@ -7,6 +7,6 @@ class RubyContainer(basic_container.BasicContainer):
 	super(self.__class__, self).__init__()
         
 	self.image = "ruby"
-	self.command = "ruby /tmp/main.rb"
+	self.command = "ruby main.rb"
 	self.file_extension = ".rb"
 

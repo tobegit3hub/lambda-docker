@@ -7,6 +7,6 @@ class UbuntuContainer(basic_container.BasicContainer):
 	super(self.__class__, self).__init__()
         
 	self.image = "ubuntu"
-	self.command = "bash /tmp/main"
+	self.command = "bash main"
 	self.file_extension = ""
 

@@ -3,9 +3,9 @@
 from runtime import basic_container
 from runtime import python27_container
 from runtime import python35_container
+from runtime import golang_container
 from runtime import ubuntu_container
 from runtime import centos_container
-from runtime import golang_container
 from runtime import ruby_container
 from runtime import erlang_container
 

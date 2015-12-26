@@ -7,6 +7,6 @@ class GolangContainer(basic_container.BasicContainer):
 	super(self.__class__, self).__init__()
         
 	self.image = "golang"
-	self.command = "go run /tmp/main.go"
+	self.command = "go run main.go"
 	self.file_extension = ".go"
 

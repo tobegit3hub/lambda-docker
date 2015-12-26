@@ -7,11 +7,26 @@ import web
 from web import form
 
 from runtime import basic_container
+from runtime import python27_container
+from runtime import python35_container
+from runtime import ubuntu_container
+from runtime import centos_container
+from runtime import golang_container
+from runtime import ruby_container
+from runtime import erlang_container
 
 render = web.template.render('static/templates/')
 
+RUNTIME_PYTHON27 = "Python 2.7"
+RUNTIME_PYTHON35 = "Python 3.5"
+RUNTIME_GOLANG = "Golang"
+RUNTIME_UBUNTU = "Linux/Ubuntu"
+RUNTIME_CENTOS = "Linux/CentOS"
+RUNTIME_RUBY = "Ruby"
+RUNTIME_ERLANG = "Erlang"
+
 myform = form.Form(
-    form.Dropdown("Runtime", ["python:2.7", "python:3.5", "golang", "ubuntu", "centos", "ruby", "javascript", "erlang"]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -39,9 +54,7 @@ class index:
         parameters = web.input()
         print(parameters)
 
-        # Example: "python:2.7"
-        runtime = parameters.get("Runtime")
-	
+	# Example: True if click the checkbox	
 	is_edit_online_code = parameters.has_key("Edit online code")
 		
 	if is_edit_online_code == False:
@@ -50,17 +63,36 @@ class index:
 	    user_code_path = load_file_path
 
         else:
-            submit_code = parameters.get("Online code")
+	    # Example: "print('test python runtime')"
+            online_code = parameters.get("Online code")
 
             tmp_path = "/tmp"
             with open("/tmp/main.py", "w") as text_file:
-                text_file.write(submit_code)
+                text_file.write(online_code)
 	    user_code_path = tmp_path
 
-        # Start lambda container
-        # TODO(tobe): Test other runtime containers.
-        basicContainer = basic_container.BasicContainer()
+        # Example: "python27"
+        runtime = parameters.get("Runtime")
 
+        # Start lambda container
+	if runtime == RUNTIME_PYTHON27:
+	    basicContainer = python27_container.Python27Container()
+	elif runtime == RUNTIME_PYTHON35:
+	    basicContainer = python35_container.Python35Container()
+	elif runtime == RUNTIME_GOLANG:
+	    basicContainer = golang_container.GolangContainer()
+	elif runtime == RUNTIME_UBUNTU:
+	    basicContainer = ubuntu_container.UbuntuContainer()
+	elif runtime == RUNTIME_CENTOS:
+	    basicContainer = centos_container.CentosContainer()
+	elif runtime == RUNTIME_RUBY:
+	    basicContainer = ruby_container.RubyContainer()
+	elif runtime == RUNTIME_ERLANG:
+	    basicContainer = erlang_container.ErlangContainer()
+	else: 
+            basicContainer = basic_container.BasicContainer()
+
+	# TODO(tobe): Make is configurable for users to set cpu and memory
         container_memory="1g"
         container_cpu_shares=1024
 
