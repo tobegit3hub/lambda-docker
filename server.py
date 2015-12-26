@@ -54,6 +54,27 @@ class index:
         parameters = web.input()
         print(parameters)
 
+        # Example: "python27"
+        runtime = parameters.get("Runtime")
+
+        # Start lambda container
+        if runtime == RUNTIME_PYTHON27:
+            containerRuntime = python27_container.Python27Container()
+        elif runtime == RUNTIME_PYTHON35:
+            containerRuntime = python35_container.Python35Container()
+        elif runtime == RUNTIME_GOLANG:
+            containerRuntime = golang_container.GolangContainer()
+        elif runtime == RUNTIME_UBUNTU:
+            containerRuntime = ubuntu_container.UbuntuContainer()
+        elif runtime == RUNTIME_CENTOS:
+            containerRuntime = centos_container.CentosContainer()
+        elif runtime == RUNTIME_RUBY:
+            containerRuntime = ruby_container.RubyContainer()
+        elif runtime == RUNTIME_ERLANG:
+            containerRuntime = erlang_container.ErlangContainer()
+        else:
+            containerRuntime = basic_container.BasicContainer()
+
 	# Example: True if click the checkbox	
 	is_edit_online_code = parameters.has_key("Edit online code")
 		
@@ -66,43 +87,27 @@ class index:
 	    # Example: "print('test python runtime')"
             online_code = parameters.get("Online code")
 
-            tmp_path = "/tmp"
-            with open("/tmp/main.py", "w") as text_file:
+            tmp_path = "/tmp/"
+	    user_code_file_name = "main" + containerRuntime.file_extension
+            with open(tmp_path + user_code_file_name, "w") as text_file:
                 text_file.write(online_code)
 	    user_code_path = tmp_path
 
         # Example: "python27"
         runtime = parameters.get("Runtime")
 
-        # Start lambda container
-	if runtime == RUNTIME_PYTHON27:
-	    basicContainer = python27_container.Python27Container()
-	elif runtime == RUNTIME_PYTHON35:
-	    basicContainer = python35_container.Python35Container()
-	elif runtime == RUNTIME_GOLANG:
-	    basicContainer = golang_container.GolangContainer()
-	elif runtime == RUNTIME_UBUNTU:
-	    basicContainer = ubuntu_container.UbuntuContainer()
-	elif runtime == RUNTIME_CENTOS:
-	    basicContainer = centos_container.CentosContainer()
-	elif runtime == RUNTIME_RUBY:
-	    basicContainer = ruby_container.RubyContainer()
-	elif runtime == RUNTIME_ERLANG:
-	    basicContainer = erlang_container.ErlangContainer()
-	else: 
-            basicContainer = basic_container.BasicContainer()
-
 	# TODO(tobe): Make is configurable for users to set cpu and memory
         container_memory="1g"
         container_cpu_shares=1024
 
-        container = basicContainer.create_lambda_container(user_code_path, container_memory, container_cpu_shares)
-        basicContainer.start_lambda_container(container)
+        # Start lambda container
+        container = containerRuntime.create_lambda_container(user_code_path, container_memory, container_cpu_shares)
+        containerRuntime.start_lambda_container(container)
 
         # Wait for logs of container
         time.sleep(1)
 
-        log = basicContainer.get_container_log(container)
+        log = containerRuntime.get_container_log(container)
         if log:
             return log
         else:
