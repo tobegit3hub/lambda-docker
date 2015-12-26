@@ -55,7 +55,7 @@ class index:
             tmp_path = "/tmp"
             with open("/tmp/main.py", "w") as text_file:
                 text_file.write(submit_code)
-	    user_code_path = "/tmp/main.py"
+	    user_code_path = tmp_path
 
         # Start lambda container
         # TODO(tobe): Test other runtime containers.

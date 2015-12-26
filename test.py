@@ -3,6 +3,9 @@
 from runtime import basic_container
 from runtime import python27_container
 from runtime import python35_container
+from runtime import ubuntu_container
+from runtime import centos_container
+from runtime import golang_container
 
 
 def main():
@@ -15,10 +18,13 @@ def test():
 
     #basicContainer = basic_container.BasicContainer()
     #basicContainer = python27_container.Python27Container()
-    basicContainer = python35_container.Python35Container()
+    #basicContainer = python35_container.Python35Container()
+    #basicContainer = ubuntu_container.UbuntuContainer()
+    basicContainer = centos_container.CentosContainer()
+    #basicContainer = golang_container.GolangContainer()
 
     # TODO(tobe): Test other runtime containers.
-    runtime="python"
+    #runtime="python"
     #user_code_path = "/home/tobe/code/lambda-docker/example/"
     user_code_path = "/root/code/lambda-docker/example/"
     container_memory="1g"
