@@ -6,6 +6,7 @@ from runtime import python35_container
 from runtime import ubuntu_container
 from runtime import centos_container
 from runtime import golang_container
+from runtime import ruby_container
 
 
 def main():
@@ -20,8 +21,9 @@ def test():
     #basicContainer = python27_container.Python27Container()
     #basicContainer = python35_container.Python35Container()
     #basicContainer = ubuntu_container.UbuntuContainer()
-    basicContainer = centos_container.CentosContainer()
+    #basicContainer = centos_container.CentosContainer()
     #basicContainer = golang_container.GolangContainer()
+    basicContainer = ruby_container.RubyContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"
