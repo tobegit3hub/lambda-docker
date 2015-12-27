@@ -1,12 +1,12 @@
 
 import basic_container
 
-class GolangContainer(basic_container.BasicContainer):
+class Java9Container(basic_container.BasicContainer):
 
     def __init__(self):
 	super(self.__class__, self).__init__()
         
-	self.image = "golang"
-	self.command = "go run /tmp/main.go"
-	self.file_extension = ".go"
+	self.image = "java:8"
+	self.command = 'sh -c "javac main.java && java main"'
+	self.file_extension = ".java"
 
