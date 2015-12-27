@@ -8,6 +8,9 @@ from runtime import ubuntu_container
 from runtime import centos_container
 from runtime import ruby_container
 from runtime import erlang_container
+from runtime import php_container
+from runtime import node_container
+from runtime import java9_container
 
 
 def main():
@@ -25,7 +28,10 @@ def test():
     #basicContainer = centos_container.CentosContainer()
     #basicContainer = golang_container.GolangContainer()
     #basicContainer = ruby_container.RubyContainer()
-    basicContainer = erlang_container.ErlangContainer()
+    #basicContainer = erlang_container.ErlangContainer()
+    #basicContainer = php_container.PhpContainer()
+    #basicContainer = node_container.NodeContainer()
+    basicContainer = java9_container.Java9Container()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"
@@ -38,7 +44,7 @@ def test():
     basicContainer.start_lambda_container(container)
     
     import time
-    time.sleep(1)
+    time.sleep(2)
     log = basicContainer.get_container_log(container)
     print(log)
 
