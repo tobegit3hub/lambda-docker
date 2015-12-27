@@ -14,6 +14,10 @@ from runtime import centos_container
 from runtime import golang_container
 from runtime import ruby_container
 from runtime import erlang_container
+from runtime import node_container
+from runtime import php_container
+from runtime import java9_container
+from runtime import javaopenjdk9_container
 
 render = web.template.render('static/templates/')
 
@@ -24,9 +28,13 @@ RUNTIME_UBUNTU = "Linux/Ubuntu"
 RUNTIME_CENTOS = "Linux/CentOS"
 RUNTIME_RUBY = "Ruby"
 RUNTIME_ERLANG = "Erlang"
+RUNTIME_NODE = "NodeJS"
+RUNTIME_PHP = "PHP"
+RUNTIME_JAVA9 = "Java 9"
+RUNTIME_JAVAOPENJDK9 = "Java OpenJDK 9"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -72,6 +80,14 @@ class index:
             containerRuntime = ruby_container.RubyContainer()
         elif runtime == RUNTIME_ERLANG:
             containerRuntime = erlang_container.ErlangContainer()
+	elif runtime == RUNTIME_NODE:
+	    containerRuntime = node_container.NodeContainer()
+	elif runtime == RUNTIME_PHP:
+	    containerRuntime = php_container.PhpContainer()
+	elif runtime == RUNTIME_JAVA9:
+	    containerRuntime = java9_container.Java9Container()
+	elif runtime == RUNTIME_JAVAOPENJDK9:
+	    containerRuntime = javaopenjdk9_container.JavaOpenjdk9Container()
         else:
             containerRuntime = basic_container.BasicContainer()
 

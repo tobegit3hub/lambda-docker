@@ -1,7 +1,7 @@
 
 import basic_container
 
-class Java9Container(basic_container.BasicContainer):
+class JavaOpenjdk7Container(basic_container.BasicContainer):
 
     def __init__(self):
 	super(self.__class__, self).__init__()
