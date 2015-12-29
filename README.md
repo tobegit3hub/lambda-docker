@@ -40,6 +40,9 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [ ] Lisp
 - [ ] Object-C
 - [ ] Swift
+- [ ] Clojure
+- [ ] Haskell
+
 
 
 ## Usage
