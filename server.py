@@ -21,6 +21,8 @@ from runtime import javaopenjdk9_container
 from runtime import r_container
 from runtime import haskell_container
 from runtime import perl_container
+from runtime import c_container
+from runtime import cpp_container
 
 
 render = web.template.render('static/templates/')
@@ -30,6 +32,8 @@ RUNTIME_PYTHON35 = "Python 3.5"
 RUNTIME_GOLANG = "Golang"
 RUNTIME_UBUNTU = "Linux/Ubuntu"
 RUNTIME_CENTOS = "Linux/CentOS"
+RUNTIME_C = "C"
+RUNTIME_CPP = "CPP"
 RUNTIME_RUBY = "Ruby"
 RUNTIME_ERLANG = "Erlang"
 RUNTIME_NODE = "NodeJS"
@@ -41,7 +45,7 @@ RUNTIME_HASKELL = "Haskell"
 RUNTIME_PERL = "Perl"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -83,6 +87,10 @@ class index:
             containerRuntime = ubuntu_container.UbuntuContainer()
         elif runtime == RUNTIME_CENTOS:
             containerRuntime = centos_container.CentosContainer()
+	elif runtime == RUNTIME_C:
+	    containerRuntime = c_container.CContainer()
+	elif runtime == RUNTIME_CPP:
+	    containerRuntime = cpp_container.CppContainer()
         elif runtime == RUNTIME_RUBY:
             containerRuntime = ruby_container.RubyContainer()
         elif runtime == RUNTIME_ERLANG:

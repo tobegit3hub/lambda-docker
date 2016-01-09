@@ -21,8 +21,8 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
   - [x] OpenJDK 9
 - [x] JavaScript
   - [x] NodeJS
-- [ ] C
-- [ ] CPP
+- [x] C
+- [x] CPP
 - [x] Ruby
 - [x] Erlang
 - [x] Shell
