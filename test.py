@@ -11,6 +11,7 @@ from runtime import erlang_container
 from runtime import php_container
 from runtime import node_container
 from runtime import java9_container
+from runtime import r_container
 
 
 def main():
@@ -31,7 +32,8 @@ def test():
     #basicContainer = erlang_container.ErlangContainer()
     #basicContainer = php_container.PhpContainer()
     #basicContainer = node_container.NodeContainer()
-    basicContainer = java9_container.Java9Container()
+    #basicContainer = java9_container.Java9Container()
+    basicContainer = r_container.RContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"
