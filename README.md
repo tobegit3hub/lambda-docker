@@ -35,13 +35,13 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [ ] Pascal
 - [ ] Rust
 - [ ] Elixir
-- [ ] R
+- [x] R
 - [ ] Lua
 - [ ] Lisp
 - [ ] Object-C
 - [ ] Swift
 - [ ] Clojure
-- [ ] Haskell
+- [x] Haskell
 
 
 

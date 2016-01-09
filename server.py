@@ -18,6 +18,8 @@ from runtime import node_container
 from runtime import php_container
 from runtime import java9_container
 from runtime import javaopenjdk9_container
+from runtime import r_container
+from runtime import haskell_container
 
 render = web.template.render('static/templates/')
 
@@ -32,9 +34,11 @@ RUNTIME_NODE = "NodeJS"
 RUNTIME_PHP = "PHP"
 RUNTIME_JAVA9 = "Java 9"
 RUNTIME_JAVAOPENJDK9 = "Java OpenJDK 9"
+RUNTIME_R = "R"
+RUNTIME_HASKELL = "Haskell"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -88,6 +92,10 @@ class index:
 	    containerRuntime = java9_container.Java9Container()
 	elif runtime == RUNTIME_JAVAOPENJDK9:
 	    containerRuntime = javaopenjdk9_container.JavaOpenjdk9Container()
+	elif runtime == RUNTIME_R:
+	    containerRuntime = r_container.RContainer()
+	elif runtime == RUNTIME_HASKELL:
+	    containerRuntime = haskell_container.HaskellContainer()
         else:
             containerRuntime = basic_container.BasicContainer()
 

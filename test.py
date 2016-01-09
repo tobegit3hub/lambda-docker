@@ -12,6 +12,7 @@ from runtime import php_container
 from runtime import node_container
 from runtime import java9_container
 from runtime import r_container
+from runtime import haskell_container
 
 
 def main():
@@ -33,7 +34,8 @@ def test():
     #basicContainer = php_container.PhpContainer()
     #basicContainer = node_container.NodeContainer()
     #basicContainer = java9_container.Java9Container()
-    basicContainer = r_container.RContainer()
+    #basicContainer = r_container.RContainer()
+    basicContainer = haskell_container.HaskellContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"
