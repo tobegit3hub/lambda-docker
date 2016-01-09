@@ -20,6 +20,8 @@ from runtime import java9_container
 from runtime import javaopenjdk9_container
 from runtime import r_container
 from runtime import haskell_container
+from runtime import perl_container
+
 
 render = web.template.render('static/templates/')
 
@@ -36,9 +38,10 @@ RUNTIME_JAVA9 = "Java 9"
 RUNTIME_JAVAOPENJDK9 = "Java OpenJDK 9"
 RUNTIME_R = "R"
 RUNTIME_HASKELL = "Haskell"
+RUNTIME_PERL = "Perl"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -96,6 +99,8 @@ class index:
 	    containerRuntime = r_container.RContainer()
 	elif runtime == RUNTIME_HASKELL:
 	    containerRuntime = haskell_container.HaskellContainer()
+	elif runtime == RUNTIME_PERL:
+	    containerRuntime = perl_container.PerlContainer()
         else:
             containerRuntime = basic_container.BasicContainer()
 

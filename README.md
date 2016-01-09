@@ -29,7 +29,7 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
   - [x] Ubuntu
   - [x] CentOS
 - [x] PHP
-- [ ] Perl  
+- [x] Perl  
 - [ ] C#
 - [ ] VB
 - [ ] Pascal
