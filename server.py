@@ -24,6 +24,7 @@ from runtime import perl_container
 from runtime import c_container
 from runtime import cpp_container
 from runtime import lua_container
+from runtime import swift_container
 
 
 render = web.template.render('static/templates/')
@@ -45,9 +46,10 @@ RUNTIME_R = "R"
 RUNTIME_HASKELL = "Haskell"
 RUNTIME_PERL = "Perl"
 RUNTIME_LUA = "Lua"
+RUNTIME_SWIFT = "Swift"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL, RUNTIME_LUA]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL, RUNTIME_LUA, RUNTIME_SWIFT]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -113,6 +115,8 @@ class index:
 	    containerRuntime = perl_container.PerlContainer()
 	elif runtime == RUNTIME_LUA:
 	    containerRuntime = lua_container.LuaContainer()
+	elif runtime == RUNTIME_SWIFT:
+	    containerRuntime = swift_container.SwfitContainer()
         else:
             containerRuntime = basic_container.BasicContainer()
 
