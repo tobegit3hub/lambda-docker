@@ -34,11 +34,11 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [ ] VB
 - [ ] Pascal
 - [ ] Rust
-- [ ] Elixir
+- [x] Elixir
 - [x] R
 - [x] Lua
 - [ ] Lisp
-- [x] Object-C
+- [x] Objective-c
 - [x] Swift
 - [ ] Clojure
 - [x] Haskell
