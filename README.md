@@ -33,7 +33,7 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [ ] C#
 - [ ] VB
 - [ ] Pascal
-- [ ] Rust
+- [x] Rust
 - [x] Elixir
 - [x] R
 - [x] Lua

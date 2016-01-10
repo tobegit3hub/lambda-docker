@@ -27,6 +27,7 @@ from runtime import lua_container
 from runtime import swift_container
 from runtime import objectivec_container
 from runtime import elixir_container
+from runtime import rust_container
 
 
 render = web.template.render('static/templates/')
@@ -51,9 +52,10 @@ RUNTIME_LUA = "Lua"
 RUNTIME_SWIFT = "Swift"
 RUNTIME_OBJECTIVEC = "Objective-c"
 RUNTIME_ELIXIR = "Elixir"
+RUNTIME_RUST = "Rust"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL, RUNTIME_LUA, RUNTIME_SWIFT, RUNTIME_OBJECTIVEC, RUNTIME_ELIXIR]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL, RUNTIME_LUA, RUNTIME_SWIFT, RUNTIME_OBJECTIVEC, RUNTIME_ELIXIR, RUNTIME_RUST]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -125,6 +127,8 @@ class index:
 	    containerRuntime = objectivec_container.ObjectiveCContainer()
 	elif runtime == RUNTIME_ELIXIR:
 	    containerRuntime = elixir_container.ElixirContainer()
+	elif runtime == RUNTIME_RUST:
+	    containerRuntime = rust_container.RustContainer()
         else:
             containerRuntime = basic_container.BasicContainer()
 

@@ -20,6 +20,7 @@ from runtime import lua_container
 from runtime import swift_container
 from runtime import objectivec_container
 from runtime import elixir_container
+from runtime import rust_container
 
 
 def main():
@@ -49,7 +50,8 @@ def test():
     #basicContainer = lua_container.LuaContainer()
     #basicContainer = swift_container.SwiftContainer()
     #basicContainer = objectivec_container.ObjectiveCContainer()
-    basicContainer = elixir_container.ElixirContainer()
+    #basicContainer = elixir_container.ElixirContainer()
+    basicContainer = rust_container.RustContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"
