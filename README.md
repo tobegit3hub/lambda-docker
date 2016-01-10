@@ -36,7 +36,7 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [ ] Rust
 - [ ] Elixir
 - [x] R
-- [ ] Lua
+- [x] Lua
 - [ ] Lisp
 - [ ] Object-C
 - [ ] Swift

@@ -16,6 +16,7 @@ from runtime import haskell_container
 from runtime import perl_container
 from runtime import cpp_container
 from runtime import c_container
+from runtime import lua_container
 
 
 def main():
@@ -41,7 +42,8 @@ def test():
     #basicContainer = haskell_container.HaskellContainer()
     #basicContainer = perl_container.PerlContainer()
     #basicContainer = c_container.CContainer()
-    basicContainer = cpp_container.CppContainer()
+    #basicContainer = cpp_container.CppContainer()
+    basicContainer = lua_container.LuaContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"
