@@ -18,6 +18,7 @@ from runtime import cpp_container
 from runtime import c_container
 from runtime import lua_container
 from runtime import swift_container
+from runtime import objectivec_container
 
 
 def main():
@@ -45,7 +46,8 @@ def test():
     #basicContainer = c_container.CContainer()
     #basicContainer = cpp_container.CppContainer()
     #basicContainer = lua_container.LuaContainer()
-    basicContainer = swift_container.SwiftContainer()
+    #basicContainer = swift_container.SwiftContainer()
+    basicContainer = objectivec_container.ObjectiveCContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"

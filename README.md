@@ -38,8 +38,8 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [x] R
 - [x] Lua
 - [ ] Lisp
-- [ ] Object-C
-- [ ] Swift
+- [x] Object-C
+- [x] Swift
 - [ ] Clojure
 - [x] Haskell
 
