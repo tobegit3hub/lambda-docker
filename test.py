@@ -21,7 +21,7 @@ from runtime import swift_container
 from runtime import objectivec_container
 from runtime import elixir_container
 from runtime import rust_container
-
+from runtime import tensorflow_container
 
 def main():
     print("Start lambda-docker service")
@@ -51,7 +51,8 @@ def test():
     #basicContainer = swift_container.SwiftContainer()
     #basicContainer = objectivec_container.ObjectiveCContainer()
     #basicContainer = elixir_container.ElixirContainer()
-    basicContainer = rust_container.RustContainer()
+    #basicContainer = rust_container.RustContainer()
+    basicContainer = tensorflow_container.TensorFlowContainer()
 
     # TODO(tobe): Test other runtime containers.
     #runtime="python"

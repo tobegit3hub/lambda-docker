@@ -9,6 +9,7 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [x] Python
   - [x] Python 2.7
   - [x] Python 3.5
+  - [x] TensorFlow 0.8
 - [x] Golang
 - [x] Java
   - [x] Java 6
@@ -42,8 +43,6 @@ You can run Python/Golang/Ruby/Java/Javascript/Erlang/Shell or any script withou
 - [x] Swift
 - [ ] Clojure
 - [x] Haskell
-
-
 
 ## Usage
 

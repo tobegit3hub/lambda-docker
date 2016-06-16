@@ -28,7 +28,7 @@ from runtime import swift_container
 from runtime import objectivec_container
 from runtime import elixir_container
 from runtime import rust_container
-
+from runtime import tensorflow_container
 
 render = web.template.render('static/templates/')
 
@@ -53,9 +53,10 @@ RUNTIME_SWIFT = "Swift"
 RUNTIME_OBJECTIVEC = "Objective-c"
 RUNTIME_ELIXIR = "Elixir"
 RUNTIME_RUST = "Rust"
+RUNTIME_TENSORFLOW = "TensorFlow"
 
 myform = form.Form(
-    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL, RUNTIME_LUA, RUNTIME_SWIFT, RUNTIME_OBJECTIVEC, RUNTIME_ELIXIR, RUNTIME_RUST]),
+    form.Dropdown("Runtime", [RUNTIME_PYTHON27, RUNTIME_PYTHON35, RUNTIME_GOLANG, RUNTIME_UBUNTU, RUNTIME_CENTOS, RUNTIME_C, RUNTIME_CPP, RUNTIME_RUBY, RUNTIME_ERLANG, RUNTIME_NODE, RUNTIME_PHP, RUNTIME_JAVA9, RUNTIME_JAVAOPENJDK9, RUNTIME_R, RUNTIME_HASKELL, RUNTIME_PERL, RUNTIME_LUA, RUNTIME_SWIFT, RUNTIME_OBJECTIVEC, RUNTIME_ELIXIR, RUNTIME_RUST, RUNTIME_TENSORFLOW]),
     form.Textbox("Load local file"),
     form.Checkbox("Edit online code"),
     form.Textarea("Online code"))
@@ -129,6 +130,8 @@ class index:
 	    containerRuntime = elixir_container.ElixirContainer()
 	elif runtime == RUNTIME_RUST:
 	    containerRuntime = rust_container.RustContainer()
+      	elif runtime == RUNTIME_TENSORFLOW:
+	    containerRuntime = tensorflow_container.TensorFlowContainer()
         else:
             containerRuntime = basic_container.BasicContainer()
 
@@ -162,7 +165,7 @@ class index:
         containerRuntime.start_lambda_container(container)
 
         # Wait for logs of container
-        time.sleep(1)
+        time.sleep(3)
 
         log = containerRuntime.get_container_log(container)
         if log:
